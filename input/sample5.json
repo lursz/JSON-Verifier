@@ -1,0 +1,18 @@
+{
+  "PolicyName": "sqs-list-send-receive",
+  "PolicyDocument": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "SQSAccess",
+        "Effect": "Allow",
+        "Action": [
+          "sqs:ListQueues",
+          "sqs:SendMessage",
+          "sqs:ReceiveMessage"
+        ],
+        "Resource": "*"
+      }
+    ]
+  }
+}

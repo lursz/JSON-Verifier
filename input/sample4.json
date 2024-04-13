@@ -1,0 +1,16 @@
+{
+  "PolicyName": "lambda-execution",
+  "PolicyDocument": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "LambdaAccess",
+        "Effect": "Allow",
+        "Action": [
+          "lambda:InvokeFunction"
+        ],
+        "Resource": "arn:aws:lambda:us-east-1:123456789012:function:my-function"
+      }
+    ]
+  }
+}

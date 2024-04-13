@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 
 public class Verifier {
-    private JsonNode _json;
+    private final JsonNode _json;
 
     public Verifier(JsonNode json) throws IOException {
         if (json == null) {
@@ -20,11 +20,11 @@ public class Verifier {
             for (JsonNode statement : statements) {
                 JsonNode resourceNode = statement.get("Resource");
                 if (resourceNode != null && resourceNode.asText().contains("*")) {
-                    return false;
+                    return true;
                 }
             }
     }
-        return true;
+        return false;
     }
 
     public void printJson() {
