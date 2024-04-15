@@ -1,0 +1,6 @@
+{
+  "PolicyName": "lambda-execution",
+  "PlaceHolder": {
+    "Version": "2012-10-17"
+  }
+}

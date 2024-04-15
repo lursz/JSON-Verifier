@@ -55,5 +55,36 @@ public class VerifierTest {
         assertFalse(verifier.VerifyJson());
     }
 
+    @org.junit.Test
+    public void testVerifyJson7() throws IOException {
+        try {
+            Verifier verifier = new Verifier(null);
+            fail("Expected an IOException to be thrown");
+        } catch (IOException e) {
+            assertEquals("JSON object is null", e.getMessage());
+        }
+    }
+
+    @org.junit.Test
+    public void testVerifyJson8() throws IOException {
+        try {
+            Verifier verifier = new Verifier(jsonFiles.get(0));
+            verifier.VerifyJson();
+            verifier.printJson();
+        } catch (IOException e) {
+            fail("Expected an IOException to be thrown");
+        }
+    }
+
+    @org.junit.Test
+    public void testVerifyJson9() throws IOException {
+        try {
+            Verifier verifier = new Verifier(jsonFiles.get(0));
+            verifier.VerifyJson();
+        } catch (IOException e) {
+            fail("Expected an IOException to be thrown");
+        }
+    }
+
 
 }
