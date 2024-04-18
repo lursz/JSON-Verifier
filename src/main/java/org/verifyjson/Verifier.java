@@ -14,17 +14,21 @@ public class Verifier {
     }
 
     public boolean VerifyJson() throws IOException {
-        JsonNode statements = this._json.get("PolicyDocument").get("Statement");
+        try {
+            JsonNode statements = this._json.get("PolicyDocument").get("Statement");
 
-        if (statements != null) {
-            for (JsonNode statement : statements) {
-                JsonNode resourceNode = statement.get("Resource");
-                if (resourceNode != null && resourceNode.asText().contains("*")) {
-                    return true;
+            if (statements != null) {
+                for (JsonNode statement : statements) {
+                    JsonNode resourceNode = statement.get("Resource");
+                    if (resourceNode != null && resourceNode.asText().contains("*")) {
+                        return true;
+                    }
                 }
             }
-    }
-        return false;
+            return false;
+        } catch (NullPointerException e) {
+            throw new IOException("Issue with JSON object: " + e.getMessage());
+        }
     }
 
     public void printJson() {

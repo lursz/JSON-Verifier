@@ -25,7 +25,7 @@ public class ReaderTest {
             JsonNode json = Reader.readJsonFromFile("nonexist/nonexist.json");
             fail("Expected an IOException to be thrown");
         } catch (IOException e) {
-            assertEquals("nonexist/nonexist.json (No such file or directory)", e.getMessage());
+            assertEquals("Issue with filenonexist/nonexist.json: nonexist/nonexist.json (No such file or directory)", e.getMessage());
         }
     }
 
@@ -35,7 +35,7 @@ public class ReaderTest {
             JsonNode json = Reader.readJsonFromFile("");
             fail("Expected an IOException to be thrown");
         } catch (IOException e) {
-            assertEquals(" (No such file or directory)", e.getMessage());
+            assertEquals("Issue with file:  (No such file or directory)", e.getMessage());
         }
     }
 
